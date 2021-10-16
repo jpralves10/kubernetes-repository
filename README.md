@@ -52,7 +52,7 @@ Descreve detalhadamente um determinado pod
 *Tipos de Definição*
 
 Kind | Version
---------------
+-----|---------
 Pod | v1
 Service | v1
 ReplicaSet | apps/v1
@@ -238,7 +238,7 @@ Especifica como default outro namespace
 *Acessando um Pod*
 
 **`kubectl exec -it <nome_pod> -- bash`**
-Busca todos os namespaces
+Acessa o bash do pod
 
 ## Kubernetes Services
 
