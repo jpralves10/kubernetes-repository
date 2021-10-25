@@ -2,38 +2,37 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name:  votacao
+  name:  result
   namespace: votacao
 spec:
   selector:
-    app: votacao
+    app: result
   type: NodePort
   ports:
-  - name: votacao-service
-    port: 5000
+  - port: 80
     targetPort: 80
-    nodePort: 31000
+    nodePort: 30001
 
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: votacao
+  name: result
   namespace: votacao
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: votacao
+      app: result
   template:
     metadata:
       labels:
-        app: votacao
+        app: result
     spec:
       containers:
-      - name: votacao
-        image: dockersamples/examplevotingapp_vote:before
+      - name: result
+        image: kodekloud/examplevotingapp_result:v1
         ports:
-        - name: votacao
+        - name: result
           containerPort: 80
