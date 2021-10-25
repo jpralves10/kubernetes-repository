@@ -51,14 +51,3 @@ spec:
       - name: exj-data
         persistentVolumeClaim:
           claimName: nfs-pvc
-
-#        volumeMounts:
-#          - name:  env-1
-#            mountPath: /env/exjtecnologia
-#          - name:  env-2
-#            mountPath: /env/splunk
-#      volumes:
-#        - name:  env-1
-#          emptyDir: {}
-#        - name:  env-2
-#          emptyDir: {}

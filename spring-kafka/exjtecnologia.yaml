@@ -37,14 +37,12 @@ spec:
         - containerPort: 8081
         env:
           - name: API_KEY
-            value: "222"
+            value: "333"
         volumeMounts:
-          - name:  env-1
+          - name:  env-vol
             mountPath: /env/exjtecnologia
-          - name:  env-2
+          - name:  env-vol
             mountPath: /env/splunk
       volumes:
-        - name:  env-1
-          emptyDir: {}
-        - name:  env-2
+        - name:  env-vol
           emptyDir: {}
