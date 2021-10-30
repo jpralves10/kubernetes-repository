@@ -184,6 +184,13 @@ To delete everything from a certain namespace
 **`kubectl create namespace {namespace}`** <br>
 delete a namespace and re-create it
 
+*Auditando Pods* <br>
+**`kubectl logs {pod-name} -n exjnamespace`** <br>
+**`kubectl logs -l app=parking --all-containers=true -n exjnamespace`** <br>
+**`kubectl logs {pod-name} --since=2h`** <br>
+*Shows the last 10 lines of the log* <br>
+**`kubectl logs {pod-name} --tail=10`** <br>
+**`kubectl logs parking-857f57567-fvhn8 > logs.txt -n exjnamespace`**
 
 ## Kubernetes com YAML
 
