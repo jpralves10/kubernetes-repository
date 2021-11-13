@@ -32,12 +32,14 @@ spec:
     spec:
       containers:
       - name: exjtecnologia-pod
-        image: jpralves/exjtecnologia-k8s:latest
+        image: jpralves/exjtecnologia-microservice:latest
         ports:
         - containerPort: 8081
         env:
           - name: API_KEY
-            value: "333"
+            value: "999"
+          - name: KAFKA_ENV
+            value: localhost
         volumeMounts:
           - name:  env-vol
             mountPath: /env/exjtecnologia

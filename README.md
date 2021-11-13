@@ -388,7 +388,7 @@ Especifica como default outro namespace
 
 *Acessando um Pod*
 
-**`kubectl exec -it <nome_pod> -- bash`** <br>
+**`kubectl exec -it <nome_pod> -n <namespace> -- /bin/bash`** <br>
 Acessa o bash do pod
 
 ## Kubernetes Services
@@ -452,7 +452,7 @@ spec:
 **`kubectl get services`** <br>
 Busca todos os namespaces
 
-**`kubectl port-forward <service> <port>:<port>`** <br>
+**`kubectl port-forward <service> <port>:<port> -n <namespace>`** <br>
 Abre um canal de acesso externo ao serviço
 
 ## Kubernetes Docker Registry

@@ -1,0 +1,52 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysqlsrv-svc
+  namespace: exjnamespace
+spec:
+  type: ClusterIP
+  selector:
+    app: mysqlsrv
+  ports:
+  - name: http
+    protocol: TCP
+    port: 3306
+    targetPort: 3306
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysqlsrv
+  namespace: exjnamespace
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mysqlsrv
+  template:
+    metadata:
+      labels:
+        app: mysqlsrv
+    spec:
+      containers:
+      - name: mysqlsrv-pod
+        image: mysql:5.7
+        ports:
+        - containerPort: 3306
+        env:
+          - name: MYSQL_USER
+            value: user
+          - name: MYSQL_ROOT_PASSWORD
+            value: root
+          - name: MYSQL_PASSWORD
+            value: root
+          - name: MYSQL_DATABASE
+            value: mercadolivro
+        volumeMounts:
+          - name: mysqlsrv-data
+            mountPath: /var/lib/mysql
+      volumes:
+        - name: mysqlsrv-data
+          emptyDir: {}
